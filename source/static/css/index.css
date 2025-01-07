@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #efe2d4;
+    overflow: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+main .center-box {
+    width: 1800px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+main .center-box .text-content {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .center-box .text-content .text-title {
+    color: #595d48;
+    text-align: center;
+    gap: 30px;
+}
+
+main .center-box .text-content .text-title h1{
+    color: #595d48;
+    font-size: 70px;
+    margin-bottom: 30px;
+}
+
+main .center-box .text-content .text-title i{
+    color: #595d48;
+    font-size: 20px;
+}
+
+main .center-box .text-content .button{
+    background: #595d48;
+    color: #fff;
+    margin-top: 70px;
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 30px;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+main .center-box .text-content .button:hover {
+    background: #9fa877;
+    transform: scale(1.1);
+}
+
+main .center-box .image-content {
+    height: 100%;
+    width: 50%;
+    background-image: url(../images/flower.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
