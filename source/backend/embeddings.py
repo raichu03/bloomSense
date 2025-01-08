@@ -3,6 +3,8 @@ import ollama
 import json
 import os
 import numpy as np
+from numpy.linalg import norm
+
 
 def extract_pdf(file_path):
     
@@ -50,15 +52,31 @@ def get_embeddings(file_name, paragraphs):
     save_embeddings(file_name, embeddings)
     return embeddings
 
+def find_similar(prompt, embedding):
+    needle_norm = norm(prompt)
+    similarity_scores = [
+        np.dot(prompt, item) / (needle_norm * norm(item)) for item in embedding
+    ]
+    return sorted(zip(similarity_scores, range(len(embedding))), reverse=True)
 
-def main():
-    
-    file_name = '../test.pdf'
-    paragraphs = extract_pdf(file_name)
-    result = get_embeddings(file_name, paragraphs)
-    
-    print(result['message'])
-    
+def get_paragraphs():
+    with open('/home/raichu/Desktop/projects/bloomSense/source/backend/conversation.py', 'r') as json_file:
+        paragraph = json.load(json_file)
+    return paragraph
 
-if __name__== "__main__":
-    main()  
+def get_embedding():
+    with open('/home/raichu/Desktop/projects/bloomSense/source/backend/embeddings', 'r') as json_file:
+        embedding = json.load(json_file)
+    return embedding
+
+def generate_context(prompt: str):
+    
+    prompt_embedding = ollama.embeddings(model="nomic-embed-text", prompt=prompt)["embedding"]
+    
+    paragraphs = get_paragraphs()
+    embeddings = get_embedding()
+    
+    similar_paragraphs = find_similar(prompt_embedding, embeddings)
+    
+    context = " ".join(paragraphs[item[1]] for item in similar_paragraphs)
+    
