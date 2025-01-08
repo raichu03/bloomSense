@@ -35,7 +35,6 @@ function askAgent(message){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data.response);
         addAgentResponse(data.response);
     })
     .catch((error) => {

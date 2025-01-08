@@ -60,23 +60,24 @@ def find_similar(prompt, embedding):
     return sorted(zip(similarity_scores, range(len(embedding))), reverse=True)
 
 def get_paragraphs():
-    with open('/home/raichu/Desktop/projects/bloomSense/source/backend/conversation.py', 'r') as json_file:
+    with open('backend/embeddings/paragraphs.json', 'r') as json_file:
         paragraph = json.load(json_file)
     return paragraph
 
 def get_embedding():
-    with open('/home/raichu/Desktop/projects/bloomSense/source/backend/embeddings', 'r') as json_file:
+    with open('backend/embeddings/embedding.json', 'r') as json_file:
         embedding = json.load(json_file)
     return embedding
 
 def generate_context(prompt: str):
-    
     prompt_embedding = ollama.embeddings(model="nomic-embed-text", prompt=prompt)["embedding"]
     
     paragraphs = get_paragraphs()
     embeddings = get_embedding()
     
-    similar_paragraphs = find_similar(prompt_embedding, embeddings)
+    similar_paragraphs = find_similar(prompt_embedding, embeddings)[:5]
     
     context = " ".join(paragraphs[item[1]] for item in similar_paragraphs)
+    
+    return context
     

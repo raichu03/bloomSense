@@ -27,7 +27,7 @@ async def chat():
 
 @app.post("/conversation")
 async def conversation_endpoint(prompt: Prompt):
-    context = "i am a 15 year old boy and i am very shy to talk about anything"
+    context = embeddings.generate_context(prompt.message)
     response = conversation.conversationAI(prompt.message, context)
     return {"response": response}
         
