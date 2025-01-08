@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #efe2d4;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+nav {
+    background: red;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+main .chat-box {
+    background: pink;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .chat-box .user-text {
+    background: green;
+    width: 95%;
+    min-height: 70px;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: flex-end;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+
+main .chat-box .assistant-text {
+    background: green;
+    width: 95%;
+    min-height: 70px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+    padding: 20px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+
+
+
+footer {
+    background: blue;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+footer .input-box {
+    background: grey;
+    width: 55%;
+    height: 70px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+footer .input-box input {
+    background: none;
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-left: 15px;
+    font-size: 1.2rem;
+}
+
+footer .input-box button {
+    background: none;
+    width: 10%;
+    height: 100%;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 1.2rem;
+}
+
+footer .input-box button:hover {
+    cursor: pointer;
+}

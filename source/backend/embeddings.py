@@ -32,15 +32,16 @@ def load_embeddings(file_name):
     
     if not os.path.exists(f"embeddings/{file_name}.json"):
         return False
-    with open(f"embeddings/{file_name}.json", "w") as file:
+    
+    with open(f"embeddings/{file_name}.json", "r") as file:
         return json.load(file)
 
 
 def get_embeddings(file_name, paragraphs):
     """Generates embeddings form the paragraphs and saves them"""
     
-    if (embeddings := load_embeddings(file_name)) is not False:
-        return embeddings
+    # if (embeddings := load_embeddings(file_name)) is not False:
+    #     return embeddings
     
     embeddings = [
         ollama.embeddings(model='nomic-embed-text', prompt=paragraph)["embedding"]
@@ -49,3 +50,15 @@ def get_embeddings(file_name, paragraphs):
     save_embeddings(file_name, embeddings)
     return embeddings
 
+
+def main():
+    
+    file_name = '../test.pdf'
+    paragraphs = extract_pdf(file_name)
+    result = get_embeddings(file_name, paragraphs)
+    
+    print(result['message'])
+    
+
+if __name__== "__main__":
+    main()  

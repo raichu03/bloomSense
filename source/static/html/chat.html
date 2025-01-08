@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/chat.css">
 </head>
 <body>
-    this is test
+
+    <nav></nav>
+
+    <main>
+        <div class="chat-box" id="chat-box">
+            <!-- <div class="user-text">hi</div>
+            <div class="assistant-text">hello</div> -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="input-box">
+            <input type="text" class="message" id="message" placeholder="Type a message..." autocomplete="off">
+            <button type="submit" id="send-button">send</button>
+        </div>
+    </footer>
+
+    <script src="/static/js/chat.js"></script>
+
 </body>
 </html>
