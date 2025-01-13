@@ -5,13 +5,13 @@
 }
 
 body {
-    background: #efe2d4;
+    background: #343a40;
     overflow: hidden;
     padding-bottom: 20px;
 }
 
 nav {
-    background: red;
+    background: #343a40;
     width: 100%;
     height: 100px;
     display: flex;
@@ -27,20 +27,22 @@ main {
     align-items: center;
     overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 main .chat-box {
-    background: pink;
-    width: 50%;
+    background: #343a40;
+    width: 40%;
     height: 100%;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
 }
 
+
 main .chat-box .user-text {
-    background: green;
+    background: #495057;
     width: 95%;
     min-height: 70px;
     height: auto;
@@ -54,10 +56,11 @@ main .chat-box .user-text {
     font-size: 25px;
     font-weight: 500;
     white-space: pre-wrap;
+    color: #fff;
 }
 
 main .chat-box .assistant-text {
-    background: green;
+    background: #495057;
     width: 95%;
     min-height: 70px;
     height: auto;
@@ -72,12 +75,13 @@ main .chat-box .assistant-text {
     font-size: 25px;
     font-weight: 500;
     white-space: pre-wrap;
+    color: #fff;
 }
 
 
 
 footer {
-    background: blue;
+    background: #343a40;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -89,8 +93,8 @@ footer {
 }
 
 footer .input-box {
-    background: grey;
-    width: 55%;
+    background: #495057;
+    width: 45%;
     height: 70px;
     border-radius: 15px;
     display: flex;
@@ -106,8 +110,14 @@ footer .input-box input {
     outline: none;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    padding-left: 15px;
-    font-size: 1.2rem;
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 25px;
+    color: #fff;
+}
+
+footer .input-box input::placeholder {
+    color: #c3c3c3;
 }
 
 footer .input-box button {
@@ -118,8 +128,13 @@ footer .input-box button {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     font-size: 1.2rem;
+    background-image: url(../images/send.svg);
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 footer .input-box button:hover {
     cursor: pointer;
+    transform: scale(1.15);
 }
