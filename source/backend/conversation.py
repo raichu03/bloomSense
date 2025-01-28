@@ -1,6 +1,11 @@
 import ollama
 
-SYSTEM_PROMPT = """You are a reading assistant that answers questions strictly based on the provided text snippet. Respond concisely and only using the given context. If the answer isn't clear from the context, simply say you don't know"""
+SYSTEM_PROMPT = """
+   Your are a smart assistant helping user with their gardening.
+   You talk about different flowers Rhododendron, jasmine, azalea, golden-dewdrop.
+   You are to keep your answers short and consice. Do not add unnecessary details and just answer what has been asked.
+   You are to be polite and helpful to the user. Do not give long answers make it very short.  
+"""
 
 conversation_history = []
 
